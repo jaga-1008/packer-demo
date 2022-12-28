@@ -37,8 +37,8 @@ build {
   provisioner "shell" {
     inline = [
       "echo Installing Apache",
-      "sudo yum update",
-      "sudo yum install -y apache2",
+      "sudo apt-get update",
+      "sudo apt-get install -y apache2",
       "sudo cp ~/index.html /var/www/html/",
       "sudo systemctl start apache2"
     ]
