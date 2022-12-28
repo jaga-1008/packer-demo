@@ -26,7 +26,7 @@ source "amazon-ebs" "ubuntu" {
 build {
   name    = "learn-packer"
   sources = [
-    "source.amazon-ebs.amzn2"
+    "source.amazon-ebs.linux"
   ]
 
   provisioner "file" {
