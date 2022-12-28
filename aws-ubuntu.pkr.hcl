@@ -13,14 +13,14 @@ source "amazon-ebs" "ubuntu" {
   region        = "us-east-1"
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*"
+      name                = "amzn2-ami-hvm-2.0.20210326.0-x86_64-gp2-nodejs14"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
     most_recent = true
-    owners      = ["099720109477"]
+    owners      = ["782511650046"]
   }
-  ssh_username = "ubuntu"
+  ssh_username = "ec2-user"
 }
 
 build {
@@ -37,10 +37,10 @@ build {
   provisioner "shell" {
     inline = [
       "echo Installing Apache",
-      "sudo apt-get update",
-      "sudo apt-get install -y apache2",
+      "sudo yum update",
+      "sudo yum install -y httpd",
       "sudo cp ~/index.html /var/www/html/",
-      "sudo systemctl start apache2"
+      "sudo systemctl start httpd"
     ]
   }
 }
